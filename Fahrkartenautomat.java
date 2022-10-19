@@ -20,7 +20,9 @@ class Fahrkartenautomat {
         nochZuZahlen = 0.0;
         while (eingezahlterGesamtbetrag < zuZahlenderBetrag) {
             nochZuZahlen = zuZahlenderBetrag - eingezahlterGesamtbetrag;
-            System.out.println("Noch zu zahlen: " + nochZuZahlen);
+            System.out.print("Noch zu zahlen: ");
+            System.out.printf("%1.2f",nochZuZahlen);
+            System.out.println(" Euro");
             System.out.print("Eingabe (mind. 5 Cent, höchstens 2 Euro): ");
             eingeworfeneMuenze = tastatur.nextDouble();
             eingezahlterGesamtbetrag = eingezahlterGesamtbetrag + eingeworfeneMuenze;
@@ -42,8 +44,9 @@ class Fahrkartenautomat {
         // Rückgeldberechnung und -ausgabe
         rueckgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag;
         if (rueckgabebetrag > 0.0) {
-            System.out.println("Der Rückgabebetrag in Höhe von " + rueckgabebetrag + " Euro");
-            System.out.println("wird in folgenden Münzen ausgezahlt:");
+            System.out.print("Der Rückgabebetrag in Höhe von ");
+            System.out.printf("%1.2f",rueckgabebetrag);
+            System.out.println(" Euro wird in folgenden Münzen ausgezahlt:");
 
             while (rueckgabebetrag >= 2.0) { // 2-Euro-Münzen
                 System.out.println("2 Euro");
