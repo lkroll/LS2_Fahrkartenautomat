@@ -57,27 +57,27 @@ class Fahrkartenautomat {
 
             while (rueckgabebetrag >= 2.0) { // 2-Euro-Münzen
                 System.out.println("2 Euro");
-                rueckgabebetrag = rueckgabebetrag - 2.0;
+                rueckgabebetrag = Math.round((rueckgabebetrag - 2.0) * 100.0) / 100.0;
             }
             while (rueckgabebetrag >= 1.0) { // 1-Euro-Münzen
                 System.out.println("1 Euro");
-                rueckgabebetrag = rueckgabebetrag - 1.0;
+                rueckgabebetrag = Math.round((rueckgabebetrag - 1.0) * 100.0) / 100.0;
             }
             while (rueckgabebetrag >= 0.5) { // 50-Cent-Münzen
                 System.out.println("50 Cent");
-                rueckgabebetrag = rueckgabebetrag - 0.5;
+                rueckgabebetrag = Math.round((rueckgabebetrag - 0.5) * 100.0) / 100.0;
             }
             while (rueckgabebetrag >= 0.2) { // 20-Cent-Münzen
                 System.out.println("20 Cent");
-                rueckgabebetrag = rueckgabebetrag - 0.2;
+                rueckgabebetrag = Math.round((rueckgabebetrag - 0.2) * 100.0) / 100.0;
             }
             while (rueckgabebetrag >= 0.1) { // 10-Cent-Münzen
                 System.out.println("10 Cent");
-                rueckgabebetrag = rueckgabebetrag - 0.1;
+                rueckgabebetrag = Math.round((rueckgabebetrag - 0.1) * 100.0) / 100.0;
             }
             while (rueckgabebetrag >= 0.05) { // 5-Cent-Münzen
                 System.out.println("5 Cent");
-                rueckgabebetrag = rueckgabebetrag - 0.05;
+                rueckgabebetrag = Math.round((rueckgabebetrag - 0.05) * 100.0) / 100.0;
             }
         }
 
