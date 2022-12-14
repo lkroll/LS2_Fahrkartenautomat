@@ -23,6 +23,6 @@ public class Rabattsystem {
             bestellwert = bestellwert * 0.8;
         }
 
-        System.out.println("Der Bestellwert abzüglich Rabatt beträgt: " + bestellwert);
+        System.out.println("Der Bestellwert abzüglich Rabatt beträgt: " + bestellwert + " EUR");
     }
 }
