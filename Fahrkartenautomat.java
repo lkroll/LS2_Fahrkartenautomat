@@ -23,9 +23,11 @@ class Fahrkartenautomat {
         // Anzahl der Tickets eingeben
         System.out.print("Anzahl der Tickets: ");
         anzahlTickets = tastatur.nextInt();
-        if (anzahlTickets < 1 || anzahlTickets > 10) {
-            anzahlTickets = 1;
-            System.out.println("Fehlerhafte Eingabe - Ticketanzahl wird auf 1 gesetzt");
+
+        while (anzahlTickets < 1 || anzahlTickets > 10){
+            System.out.println(">> Wählen Sie bitte eine Anzahl zwischen 1 und 10! <<");
+            System.out.print("Anzahl der Tickets: ");
+            anzahlTickets = tastatur.nextInt();
         }
 
         zuZahlenderBetrag = zuZahlenderBetrag * anzahlTickets;
