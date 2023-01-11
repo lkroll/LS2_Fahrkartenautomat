@@ -29,10 +29,12 @@ class Fahrkartenautomat {
             ticketAuswahl = tastatur.nextInt();
         }
 
-        if (ticketAuswahl == 1) zuZahlenderBetrag = 2;
-        if (ticketAuswahl == 2) zuZahlenderBetrag = 3;
-        if (ticketAuswahl == 3) zuZahlenderBetrag = 8.80;
-        if (ticketAuswahl == 4) zuZahlenderBetrag = 9.40;
+        switch (ticketAuswahl){
+            case 1 -> zuZahlenderBetrag = 2;
+            case 2 -> zuZahlenderBetrag = 3;
+            case 3 -> zuZahlenderBetrag = 8.80;
+            case 4 -> zuZahlenderBetrag = 9.40;
+        }
 
         // Anzahl der Tickets eingeben
         System.out.print("Anzahl der Tickets: ");
