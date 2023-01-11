@@ -5,20 +5,34 @@ class Fahrkartenautomat {
 
         Scanner tastatur = new Scanner(System.in);
 
-        double zuZahlenderBetrag;
+        double zuZahlenderBetrag = 1;
         int anzahlTickets;
         double eingezahlterGesamtbetrag;
         double eingeworfeneMuenze;
         double rueckgabebetrag;
         double nochZuZahlen;
+        int ticketAuswahl;
 
-        // Ticketpreis eingeben
-        System.out.print("Ticketpreis (Euro): ");
-        zuZahlenderBetrag = tastatur.nextDouble();
-        if (zuZahlenderBetrag < 0) {
-            zuZahlenderBetrag = 1;
-            System.out.println("Fehlerhafte Eingabe - Ticketpreis wird auf 1 gesetzt");
+        // Ticketauswahl
+        System.out.println("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:\n");
+        System.out.println("Kurzstrecke AB [2,00 EUR] (1)");
+        System.out.println("Einzelfahrschein AB [3,00 EUR] (2)");
+        System.out.println("Tageskarte AB [8,80 EUR] (3)");
+        System.out.println("4-Fahrten-Karte AB [9,40 EUR] (4)\n");
+
+        System.out.print("Ihre Wahl: ");
+        ticketAuswahl = tastatur.nextInt();
+
+        while (ticketAuswahl < 1 || ticketAuswahl > 4) {
+            System.out.println(">> Falsche Eingabe! <<");
+            System.out.print("Ihre Wahl: ");
+            ticketAuswahl = tastatur.nextInt();
         }
+
+        if (ticketAuswahl == 1) zuZahlenderBetrag = 2;
+        if (ticketAuswahl == 2) zuZahlenderBetrag = 3;
+        if (ticketAuswahl == 3) zuZahlenderBetrag = 8.80;
+        if (ticketAuswahl == 4) zuZahlenderBetrag = 9.40;
 
         // Anzahl der Tickets eingeben
         System.out.print("Anzahl der Tickets: ");
