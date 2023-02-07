@@ -100,37 +100,28 @@ class Fahrkartenautomat {
         // Rückgeldberechnung und -ausgabe
         rueckgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag;
         if (rueckgabebetrag > 0.0) {
-            System.out.printf("Der Rückgabebetrag in Höhe von %1.2f Euro\n",rueckgabebetrag);
-            System.out.println("wird in folgenden Münzen ausgezahlt:");
+            System.out.printf("Der Rückgabebetrag in Höhe von %1.2f Euro\nwird in folgenden Münzen ausgezahlt:\n",rueckgabebetrag);
 
-            while (rueckgabebetrag >= 2.0) { // 2-Euro-Münzen
-                System.out.println("2 Euro");
-                rueckgabebetrag = Math.round((rueckgabebetrag - 2.0) * 100.0) / 100.0;
-            }
-            while (rueckgabebetrag >= 1.0) { // 1-Euro-Münzen
-                System.out.println("1 Euro");
-                rueckgabebetrag = Math.round((rueckgabebetrag - 1.0) * 100.0) / 100.0;
-            }
-            while (rueckgabebetrag >= 0.5) { // 50-Cent-Münzen
-                System.out.println("50 Cent");
-                rueckgabebetrag = Math.round((rueckgabebetrag - 0.5) * 100.0) / 100.0;
-            }
-            while (rueckgabebetrag >= 0.2) { // 20-Cent-Münzen
-                System.out.println("20 Cent");
-                rueckgabebetrag = Math.round((rueckgabebetrag - 0.2) * 100.0) / 100.0;
-            }
-            while (rueckgabebetrag >= 0.1) { // 10-Cent-Münzen
-                System.out.println("10 Cent");
-                rueckgabebetrag = Math.round((rueckgabebetrag - 0.1) * 100.0) / 100.0;
-            }
-            while (rueckgabebetrag >= 0.05) { // 5-Cent-Münzen
-                System.out.println("5 Cent");
-                rueckgabebetrag = Math.round((rueckgabebetrag - 0.05) * 100.0) / 100.0;
-            }
+            rueckgabebetrag = muenzRueckgabe(rueckgabebetrag,2.0,"2 Euro");
+            rueckgabebetrag = muenzRueckgabe(rueckgabebetrag,1.0,"1 Euro");
+            rueckgabebetrag = muenzRueckgabe(rueckgabebetrag,0.5,"50 Cent");
+            rueckgabebetrag = muenzRueckgabe(rueckgabebetrag,0.2,"20 Cent");
+            rueckgabebetrag = muenzRueckgabe(rueckgabebetrag,0.1,"10 Cent");
+            rueckgabebetrag = muenzRueckgabe(rueckgabebetrag,0.05,"5 Cent");
         }
 
         System.out.println("\nVergessen Sie nicht, den Fahrschein\n" + "vor Fahrtantritt entwerten zu lassen!\n"
                 + "Wir wünschen Ihnen eine gute Fahrt.");
 
+    }
+
+    public static double muenzRueckgabe(double rueckgabebetrag, double x, String s) {
+
+        while (rueckgabebetrag >= x) {
+            System.out.println(s);
+            rueckgabebetrag = Math.round((rueckgabebetrag - x) * 100.0) / 100.0;
+        }
+
+        return rueckgabebetrag;
     }
 }
