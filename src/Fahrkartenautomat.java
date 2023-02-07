@@ -9,25 +9,10 @@ class Fahrkartenautomat {
         double rueckgabebetrag;
         double zuZahlenderBetrag;
 
-        // Ticketauswahl
         begruessung();
         zuZahlenderBetrag = fahrkartenbestellungErfassung(tastatur);
         eingezahlterGesamtbetrag = fahrkartenBezahlen(tastatur,zuZahlenderBetrag);
-
-        // Geldeinwurf
-
-        // Fahrscheinausgabe
-        System.out.println("\nFahrschein wird ausgegeben");
-        for (int i = 0; i < 8; i++) {
-            System.out.print("=");
-            try {
-                Thread.sleep(200);
-            }
-            catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        System.out.println("\n\n");
+        fahrkartenAusgeben();
 
         // Rückgeldberechnung und -ausgabe
         rueckgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag;
@@ -71,6 +56,7 @@ class Fahrkartenautomat {
         System.out.println("Herzlich Willkommen!\n");
     }
 
+    // Ticketauswahl
     public static double fahrkartenbestellungErfassung(Scanner tastatur) {
 
         int ticketAuswahl;
@@ -112,6 +98,7 @@ class Fahrkartenautomat {
         return zuZahlenderBetrag * anzahlTickets;
     }
 
+    // Geldeinwurf
     public static double fahrkartenBezahlen(Scanner tastatur, double zuZahlenderBetrag) {
         double eingeworfeneMuenze;
         double eingezahlterGesamtbetrag = 0.0;
@@ -124,5 +111,20 @@ class Fahrkartenautomat {
             eingezahlterGesamtbetrag = eingezahlterGesamtbetrag + eingeworfeneMuenze;
         }
         return eingezahlterGesamtbetrag;
+    }
+
+    // Fahrscheinausgabe
+    public static void fahrkartenAusgeben() {
+        System.out.println("\nFahrschein wird ausgegeben");
+        for (int i = 0; i < 8; i++) {
+            System.out.print("=");
+            try {
+                Thread.sleep(200);
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("\n\n");
     }
 }
