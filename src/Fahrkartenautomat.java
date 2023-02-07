@@ -14,6 +14,7 @@ class Fahrkartenautomat {
         int ticketAuswahl;
 
         // Ticketauswahl
+        begruessung();
         System.out.println("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:\n");
         System.out.println("Kurzstrecke AB [2,00 EUR] (1)");
         System.out.println("Einzelfahrschein AB [3,00 EUR] (2)");
@@ -108,5 +109,9 @@ class Fahrkartenautomat {
                 + "Wir wünschen Ihnen eine gute Fahrt.");
 
         tastatur.close();
+    }
+
+    static void begruessung() {
+        System.out.println("Herzlich Willkommen!\n");
     }
 }
