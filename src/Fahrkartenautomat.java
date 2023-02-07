@@ -5,49 +5,15 @@ class Fahrkartenautomat {
 
         Scanner tastatur = new Scanner(System.in);
 
-        double zuZahlenderBetrag = 1;
-        int anzahlTickets;
         double eingezahlterGesamtbetrag;
         double eingeworfeneMuenze;
         double rueckgabebetrag;
         double nochZuZahlen;
-        int ticketAuswahl;
+        double zuZahlenderBetrag;
 
         // Ticketauswahl
         begruessung();
-        System.out.println("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:\n");
-        System.out.println("Kurzstrecke AB [2,00 EUR] (1)");
-        System.out.println("Einzelfahrschein AB [3,00 EUR] (2)");
-        System.out.println("Tageskarte AB [8,80 EUR] (3)");
-        System.out.println("4-Fahrten-Karte AB [9,40 EUR] (4)\n");
-
-        System.out.print("Ihre Wahl: ");
-        ticketAuswahl = tastatur.nextInt();
-
-        while (ticketAuswahl < 1 || ticketAuswahl > 4) {
-            System.out.println(">> Falsche Eingabe! <<");
-            System.out.print("Ihre Wahl: ");
-            ticketAuswahl = tastatur.nextInt();
-        }
-
-        switch (ticketAuswahl){
-            case 1 -> zuZahlenderBetrag = 2;
-            case 2 -> zuZahlenderBetrag = 3;
-            case 3 -> zuZahlenderBetrag = 8.80;
-            case 4 -> zuZahlenderBetrag = 9.40;
-        }
-
-        // Anzahl der Tickets eingeben
-        System.out.print("Anzahl der Tickets: ");
-        anzahlTickets = tastatur.nextInt();
-
-        while (anzahlTickets < 1 || anzahlTickets > 10){
-            System.out.println(">> Wählen Sie bitte eine Anzahl zwischen 1 und 10! <<");
-            System.out.print("Anzahl der Tickets: ");
-            anzahlTickets = tastatur.nextInt();
-        }
-
-        zuZahlenderBetrag = zuZahlenderBetrag * anzahlTickets;
+        zuZahlenderBetrag = fahrkartenbestellungErfassung(tastatur);
 
         // Geldeinwurf
         eingezahlterGesamtbetrag = 0.0;
@@ -113,5 +79,46 @@ class Fahrkartenautomat {
 
     static void begruessung() {
         System.out.println("Herzlich Willkommen!\n");
+    }
+
+    public static double fahrkartenbestellungErfassung(Scanner tastatur) {
+
+        int ticketAuswahl;
+        int anzahlTickets;
+        double zuZahlenderBetrag = 1;
+
+        System.out.println("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:\n");
+        System.out.println("Kurzstrecke AB [2,00 EUR] (1)");
+        System.out.println("Einzelfahrschein AB [3,00 EUR] (2)");
+        System.out.println("Tageskarte AB [8,80 EUR] (3)");
+        System.out.println("4-Fahrten-Karte AB [9,40 EUR] (4)\n");
+
+        System.out.print("Ihre Wahl: ");
+        ticketAuswahl = tastatur.nextInt();
+
+        while (ticketAuswahl < 1 || ticketAuswahl > 4) {
+            System.out.println(">> Falsche Eingabe! <<");
+            System.out.print("Ihre Wahl: ");
+            ticketAuswahl = tastatur.nextInt();
+        }
+
+        switch (ticketAuswahl){
+            case 1 -> zuZahlenderBetrag = 2;
+            case 2 -> zuZahlenderBetrag = 3;
+            case 3 -> zuZahlenderBetrag = 8.80;
+            case 4 -> zuZahlenderBetrag = 9.40;
+        }
+
+        // Anzahl der Tickets eingeben
+        System.out.print("Anzahl der Tickets: ");
+        anzahlTickets = tastatur.nextInt();
+
+        while (anzahlTickets < 1 || anzahlTickets > 10){
+            System.out.println(">> Wählen Sie bitte eine Anzahl zwischen 1 und 10! <<");
+            System.out.print("Anzahl der Tickets: ");
+            anzahlTickets = tastatur.nextInt();
+        }
+
+        return zuZahlenderBetrag * anzahlTickets;
     }
 }
