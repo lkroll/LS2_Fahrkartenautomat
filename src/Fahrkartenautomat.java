@@ -93,11 +93,11 @@ class Fahrkartenautomat {
         System.out.println("\n\n");
     }
 
+    // Rückgeldberechnung und -ausgabe
     public static void rueckgeldAusgeben(double zuZahlenderBetrag, double eingezahlterGesamtbetrag) {
 
         double rueckgabebetrag;
 
-        // Rückgeldberechnung und -ausgabe
         rueckgabebetrag = eingezahlterGesamtbetrag - zuZahlenderBetrag;
         if (rueckgabebetrag > 0.0) {
             System.out.printf("Der Rückgabebetrag in Höhe von %1.2f Euro\nwird in folgenden Münzen ausgezahlt:\n",rueckgabebetrag);
