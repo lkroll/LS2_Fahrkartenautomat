@@ -28,11 +28,16 @@ class Fahrkartenautomat {
         int anzahlTickets;
         double zuZahlenderBetrag = 1;
 
+        String[] fahrkarten = {"Einzelfahrschein AB","Einzelfahrschein BC","Einzelfahrschein ABC","Kurzstrecke AB","Tageskarte AB","Tageskarte BC","Tageskarte ABC","4-Fahrten-Karte AB","4-Fahrten-Karte BC","4-Fahrten-Karte ABC","Kleingruppen-Tageskarte AB","Kleingruppen-Tageskarte BC","Kleingruppen-Tageskarte ABC"};
+        double[] preise = {3.0, 3.5, 3.8, 2.0, 8.6, 9.2, 10.0, 9.4, 12.6, 13.8, 25.5, 26.0, 26.5};
+
         System.out.println("Wählen Sie ihre Wunschfahrkarte für Berlin AB aus:\n");
-        System.out.println("Kurzstrecke AB [2,00 EUR] (1)");
-        System.out.println("Einzelfahrschein AB [3,00 EUR] (2)");
-        System.out.println("Tageskarte AB [8,80 EUR] (3)");
-        System.out.println("4-Fahrten-Karte AB [9,40 EUR] (4)\n");
+
+        for (int i = 0; i < fahrkarten.length; i++) {
+            System.out.println(fahrkarten[i] + " [" + preise[i] + "] " + "(" + (i+1) + ")");
+        }
+
+        System.out.println();
 
         System.out.print("Ihre Wahl: ");
         ticketAuswahl = tastatur.nextInt();
