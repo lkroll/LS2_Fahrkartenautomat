@@ -26,7 +26,7 @@ class Fahrkartenautomat {
 
         int ticketAuswahl;
         int anzahlTickets;
-        double zuZahlenderBetrag = 1;
+        double zuZahlenderBetrag;
 
         String[] fahrkarten = {"Einzelfahrschein AB","Einzelfahrschein BC","Einzelfahrschein ABC","Kurzstrecke AB","Tageskarte AB","Tageskarte BC","Tageskarte ABC","4-Fahrten-Karte AB","4-Fahrten-Karte BC","4-Fahrten-Karte ABC","Kleingruppen-Tageskarte AB","Kleingruppen-Tageskarte BC","Kleingruppen-Tageskarte ABC"};
         double[] preise = {3.0, 3.5, 3.8, 2.0, 8.6, 9.2, 10.0, 9.4, 12.6, 13.8, 25.5, 26.0, 26.5};
@@ -42,18 +42,13 @@ class Fahrkartenautomat {
         System.out.print("Ihre Wahl: ");
         ticketAuswahl = tastatur.nextInt();
 
-        while (ticketAuswahl < 1 || ticketAuswahl > 4) {
+        while (ticketAuswahl < 1 || ticketAuswahl > fahrkarten.length) {
             System.out.println(">> Falsche Eingabe! <<");
             System.out.print("Ihre Wahl: ");
             ticketAuswahl = tastatur.nextInt();
         }
 
-        switch (ticketAuswahl){
-            case 1 -> zuZahlenderBetrag = 2;
-            case 2 -> zuZahlenderBetrag = 3;
-            case 3 -> zuZahlenderBetrag = 8.80;
-            case 4 -> zuZahlenderBetrag = 9.40;
-        }
+        zuZahlenderBetrag = preise[ticketAuswahl-1];
 
         // Anzahl der Tickets eingeben
         System.out.print("Anzahl der Tickets: ");
@@ -72,7 +67,7 @@ class Fahrkartenautomat {
     public static double fahrkartenBezahlen(Scanner tastatur, double zuZahlenderBetrag) {
         double eingeworfeneMuenze;
         double eingezahlterGesamtbetrag = 0.0;
-        double nochZuZahlen = 0.0;
+        double nochZuZahlen;
         while (eingezahlterGesamtbetrag < zuZahlenderBetrag) {
             nochZuZahlen = zuZahlenderBetrag - eingezahlterGesamtbetrag;
             System.out.printf("Noch zu zahlen: %1.2f Euro\n", nochZuZahlen);
